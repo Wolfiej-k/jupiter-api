@@ -1,0 +1,23 @@
+{
+  "name": "jupiter-api",
+  "version": "0.1.0",
+  "description": "A third-party API for JupiterEd data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wolfiej-k/jupiter-api.git"
+  },
+  "author": "Wolfie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wolfiej-k/jupiter-api/issues"
+  },
+  "homepage": "https://github.com/Wolfiej-k/jupiter-api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "puppeteer": "^19.3.0"
+  }
+}
