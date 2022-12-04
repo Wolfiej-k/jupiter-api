@@ -9,27 +9,47 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const navigation_1 = require("./navigation");
+const student_1 = require("./student");
+const data = {
+    "id": "245017082",
+    "password": "qwerty",
+    "school": "Bronx High School of Science",
+    "city": "New York City",
+    "state": "us_ny"
+};
 function routes(app, context) {
     return __awaiter(this, void 0, void 0, function* () {
         app.get('*', (req, res) => {
             res.send('404: Forbidden');
         });
         app.post('/student', (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const page = yield context.newPage();
-            yield page.goto('https://login.jupitered.com/login/');
-            yield page.waitForNavigation({ waitUntil: 'networkidle2' });
             console.log(`Post request to /student: ${JSON.stringify(req.body)}`);
-            yield page.type('#text_studid1', req.body['id']);
-            yield page.type('#text_password1', req.body['password']);
-            yield page.type('#text_school1', req.body['school']);
-            yield page.type('#text_city1', req.body['city']);
-            yield page.$eval('input[name=region1]', (el, state) => el.value = state, req.body['state']);
-            yield page.click('#loginbtn');
-            yield page.waitForNavigation({ waitUntil: 'networkidle2' });
-            yield page.click('#touchnavbtn');
-            yield page.click('div[val=todo]');
-            res.send(yield page.content());
+            const page = yield context.newPage();
+            const scraped = yield studentData(page, req.body);
+            res.send(JSON.stringify(scraped));
         }));
+        const page = yield context.newPage();
+        const scraped = yield studentData(page, data);
     });
 }
 exports.default = routes;
+function studentData(page, body) {
+    var _a;
+    return __awaiter(this, void 0, void 0, function* () {
+        yield page.goto('https://login.jupitered.com/login/');
+        yield page.waitForNavigation(); // {waitUntil: 'networkidle2'}
+        yield (0, navigation_1.goLogin)(page, body);
+        yield page.waitForNavigation();
+        const studentName = (_a = yield (0, navigation_1.getElement)(page, '.toptabnull')) !== null && _a !== void 0 ? _a : 'Couldn\'t get name';
+        const courseNames = yield (0, navigation_1.getCourses)(page);
+        let courses = [];
+        for (const courseName of courseNames) {
+            yield (0, navigation_1.goCourse)(page, courseName);
+            yield page.waitForNavigation();
+        }
+        // TODO: get raw html, split by \r\n, iterate line by line
+        // get course data and append to courses
+        return new student_1.Student(studentName, []);
+    });
+}
