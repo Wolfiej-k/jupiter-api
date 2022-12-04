@@ -8,7 +8,7 @@ class Student {
         let sub = 0;
         this.courses.forEach(course => {
             if (course.name != 'Phys Ed')
-                total += course.grade;
+                total += Math.round(course.grade);
             else
                 sub++;
         });

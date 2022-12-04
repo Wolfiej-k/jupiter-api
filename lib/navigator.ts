@@ -34,7 +34,10 @@ class Navigator {
     public async goCourse(course: string) {
         await this.nav()
         await this.fixCourses()
-        await this.page.click(`div[classname="${course}"]`)
+        
+        const selector = `div[classname="${course}"]`
+        const click = await this.page.$eval(selector, el => el.getAttribute('click')) ?? ''
+        await this.page.evaluate(click)
     }
 
     public async fixCourses(): Promise<void> {

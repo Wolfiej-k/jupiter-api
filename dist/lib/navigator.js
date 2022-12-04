@@ -41,10 +41,13 @@ class Navigator {
         });
     }
     goCourse(course) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             yield this.nav();
             yield this.fixCourses();
-            yield this.page.click(`div[classname="${course}"]`);
+            const selector = `div[classname="${course}"]`;
+            const click = (_a = yield this.page.$eval(selector, el => el.getAttribute('click'))) !== null && _a !== void 0 ? _a : '';
+            yield this.page.evaluate(click);
         });
     }
     fixCourses() {
