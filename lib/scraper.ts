@@ -16,7 +16,7 @@ class Scraper {
 
     public async data(): Promise<Student> {
         await this.navigator.load()
-        this.navigator.goLogin(this.body)
+        await this.navigator.goLogin(this.body)
         await this.navigator.wait()
 
         if ((await this.navigator.getElement('#alert')) != null)
