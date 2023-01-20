@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const app_1 = __importDefault(require("./lib/app"));
-puppeteer_1.default.launch().then((browser) => __awaiter(void 0, void 0, void 0, function* () {
+puppeteer_1.default.launch({ headless: false, slowMo: 10 }).then((browser) => __awaiter(void 0, void 0, void 0, function* () {
     const port = 3000;
-    const app = new app_1.default(port, browser);
+    new app_1.default(port, browser);
 }));
