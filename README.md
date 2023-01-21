@@ -10,7 +10,7 @@
 
 Install `jupiter-api` from the [npm](https://npmjs.com) package manager.
 ```bash
-npm install --save-dev jupiter-api
+npm install --save jupiter-api
 ```
 
 ## Usage
