@@ -38,8 +38,8 @@ Jupiter.launch().then(async (jupiter) => {
 
 ## Documentation
 
-More detailed information about the API and its implementation may be found [here](LICENSE).
+More detailed information about the API and its implementation may be found [here](docs/README.md).
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
