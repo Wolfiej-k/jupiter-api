@@ -60,11 +60,11 @@ class Jupiter {
      * @example
      * ```ts
      * jupiter.request({
-     *      id: '#########',
-     *      password: '#########',
-     *      school: 'Bronx High School of Science',
-     *      city: 'New York City',
-     *      state: 'us_ny'
+     *      id: '',
+     *      password: '',
+     *      school: '',
+     *      city: '',
+     *      state: ''
      * }).then(async (scraper) => {
      *      // Retrieve and parse data
      *      // See Scraper for more details

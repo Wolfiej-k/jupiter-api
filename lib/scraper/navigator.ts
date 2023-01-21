@@ -24,11 +24,11 @@ class Navigator {
      * @example
      * ```ts
      * const result = await navigator.login({
-     *      id: '#########',
-     *      password: '#########',
-     *      school: 'Bronx High School of Science',
-     *      city: 'New York City',
-     *      state: 'us_ny'
+     *      id: '',
+     *      password: '',
+     *      school: '',
+     *      city: '',
+     *      state: ''
      * })
      * 
      * console.log(`Login status: {result}`)
@@ -75,8 +75,6 @@ class Navigator {
 
     /**
      * Sets the `classname` attribute to the course name for each course listed in the navbar.
-     * 
-     * @see {@link goCourse} for more information.
      */
     public async fixCourses(): Promise<void> {
         await this.page.$$eval('.navrow', (els: any) => {
