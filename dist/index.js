@@ -14,23 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const scraper_1 = __importDefault(require("./scraper/scraper"));
-const navigator_1 = __importDefault(require("./scraper/navigator"));
 /**
  * Entry-point for the third-party Jupiter API.
- * Retrieves student grades, courses, and assignments.
- * See {@link https://jupitered.com/} for more information about the JupiterEd platform.
- * Based on the Puppeteer web-crawling library, found at {@link https://github.com/puppeteer/puppeteer}.
-
- * @version 0.5.0
+ *
+ * @remarks
+ * Initializes Chromium web-crawler, creates requests, and generates `Scraper` objects.
  */
 class Jupiter {
-    /**
-     * @remarks
-     * Recommended to call the `launch()` or `connect()` factory methods
-     * rather than constructing a `Jupiter` instance directly.
-     *
-     * @param {Browser} browser - Puppeteer `Browser` instance
-     */
     constructor(browser) {
         this.browser = browser;
     }
@@ -42,7 +32,7 @@ class Jupiter {
      *
      * @example
      * ```ts
-     * Jupiter.launch().then(async (jupiter) => {
+     * Jupiter.launch({...options}).then(async (jupiter) => {
      *      // Perform requests
      * })
      * ```
@@ -80,12 +70,15 @@ class Jupiter {
      *
      * @example
      * ```ts
-     * const scraper = await jupiter.request({
+     * jupiter.request({
      *      id: '#########',
      *      password: '#########',
      *      school: 'Bronx High School of Science',
      *      city: 'New York City',
      *      state: 'us_ny'
+     * }).then(async (scraper) => {
+     *      // Retrieve and parse data
+     *      // See Scraper for more details
      * })
      * ```
      */
@@ -93,8 +86,20 @@ class Jupiter {
         return __awaiter(this, void 0, void 0, function* () {
             const context = yield this.browser.createIncognitoBrowserContext();
             const page = yield context.newPage();
-            const navigator = new navigator_1.default(page);
-            return new scraper_1.default(request, navigator);
+            return new scraper_1.default(request, page);
         });
     }
 }
+exports.default = Jupiter;
+Jupiter.launch().then((jupiter) => __awaiter(void 0, void 0, void 0, function* () {
+    const request = {
+        "id": "249573247",
+        "password": "W01fi33141!",
+        "school": "Bronx High School of Science",
+        "city": "New York City",
+        "state": "us_ny"
+    };
+    const scraper = yield jupiter.request(request);
+    const result = yield scraper.data();
+    console.log(result.toString());
+}));

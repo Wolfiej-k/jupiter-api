@@ -36,6 +36,33 @@ Jupiter.launch().then(async (jupiter) => {
 })
 ```
 
+## Output
+```json
+{
+    "name": "Student Name",
+    "courses": [{
+        "name": "Course 1",
+        "teacher": "Teacher 1",
+        "schedule": "Period M1-R1-T1-W1-F1, rm. 1",
+        "grade": 100,
+        "categories": [{
+            "name": "Category 1",
+            "grade": 100,
+            "weight": 1
+        }],
+        "assignments": [{
+            "due": "1/1",
+            "name": "Assignment 1",
+            "score": 100,
+            "points": 100,
+            "category": "Category 1",
+            "graded": true
+        }]
+    }],
+    "gpa": 100
+}
+```
+
 ## Documentation
 
 More detailed information about the API and its implementation may be found [here](docs/README.md).
