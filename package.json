@@ -2,7 +2,7 @@
   "name": "jupiter-api",
   "version": "0.5.1",
   "description": "A third-party API for JupiterEd data.",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "launch": "tsc && node dist/index.js",
     "docs": "npx typedoc --readme none --theme markdown --entryPointStrategy expand --excludePrivate --sort source-order --out docs lib/"

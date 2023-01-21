@@ -17,32 +17,11 @@ const course_1 = __importDefault(require("../models/course"));
 const category_1 = __importDefault(require("../models/category"));
 const assignment_1 = __importDefault(require("../models/assignment"));
 const navigator_1 = __importDefault(require("./navigator"));
-/**
- * Retrieves student, grade, course, and assignment data from the Jupiter web client.
- */
 class Scraper {
-    /**
-     * @param {JupiterRequest} request - Login details for {@link https://login.jupitered.com/login/}
-     * @param {Page} page - Puppeteer `Page` to initialize `Navigator`
-     */
     constructor(request, page) {
         this.request = request;
         this.navigator = new navigator_1.default(page);
     }
-    /**
-     * Scrapes Jupiter data and returns a `Student` object.
-     *
-     * @remarks
-     * If login fails, the result has name "Incorrect credentials". See `Student`, `Course`, `Category`, and `Assignment` for more information about the outputted data structure.
-     *
-     * @returns {Promise<Student>} Promise resolving to `Student` object
-     *
-     * @example
-     * ```ts
-     * const student = await scraper.data()
-     * console.log(student.toString())
-     * ```
-     */
     data() {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {

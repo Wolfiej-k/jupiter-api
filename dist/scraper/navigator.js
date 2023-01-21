@@ -9,36 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Crawls the student front-end of Jupiter.
- */
 class Navigator {
-    /**
-     * @param {Page} page - Puppeteer `Page` to navigate
-     */
     constructor(page) {
         this.url = 'https://login.jupitered.com/login/';
         this.page = page;
     }
-    /**
-     * Logs in to the Jupiter web client.
-     *
-     * @param {JupiterRequest} request - Login details for {@link https://login.jupitered.com/login/}
-     * @returns {Promise<boolean>} Promise resolving to `true` if successful
-     *
-     * @example
-     * ```ts
-     * const result = await navigator.login({
-     *      id: '#########',
-     *      password: '#########',
-     *      school: 'Bronx High School of Science',
-     *      city: 'New York City',
-     *      state: 'us_ny'
-     * })
-     *
-     * console.log(`Login status: {result}`)
-     * ```
-     */
     login(request) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.page.goto(this.url);
@@ -53,22 +28,11 @@ class Navigator {
             return (yield this.getElement('#alert')) == null;
         });
     }
-    /**
-     * Opens or closes the left navbar.
-     */
     toggleNav() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.page.click('#touchnavbtn');
         });
     }
-    /**
-     * Navigates to course information page.
-     *
-     * @remarks
-     * `goCourse()` searches for `div` elements with the course name as an attribute. Since Jupiter provides no indexable information by default, it is necessary to first call `fixCourses()` to set the attributes and add this functionality.
-     *
-     * @param {string} course - Exact name of the course to visit
-     */
     goCourse(course) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
@@ -80,11 +44,6 @@ class Navigator {
             yield this.page.waitForNavigation();
         });
     }
-    /**
-     * Sets the `classname` attribute to the course name for each course listed in the navbar.
-     *
-     * @see {@link goCourse} for more information.
-     */
     fixCourses() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.page.$$eval('.navrow', (els) => {
@@ -99,34 +58,16 @@ class Navigator {
             });
         });
     }
-    /**
-     * Retrieve the first HTML element on the page matching a query.
-     *
-     * @param {string} selector - Puppeteer search query
-     * @returns {Promise<ElementHandle | null>} Promise resolving to an `ElementHandle` or null if the target is not present
-     */
     getElement(selector) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.page.$(selector);
         });
     }
-    /**
-     * Retrieve all HTML elements on the page matching a query.
-     *
-     * @param {string} selector - Puppeteer search query
-     * @returns {Promise<ElementHandle[]>} Promise resolving to an `ElementHandle` array
-     */
     getElements(selector) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.page.$$(selector);
         });
     }
-    /**
-     * Retrieve raw HTML from an HTML `ElementHandle`.
-     *
-     * @param {ElementHandle | null} element - Handle to HTML element, null-safe
-     * @returns {Promise<string | undefined>} Promise resolving to raw HTML string or `undefined` if not present
-     */
     getHtml(element) {
         return __awaiter(this, void 0, void 0, function* () {
             const handle = yield (element === null || element === void 0 ? void 0 : element.getProperty('innerHTML'));
