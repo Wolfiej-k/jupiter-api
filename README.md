@@ -6,9 +6,6 @@
  - Taj Jethwani-Keyser
  - Alex Pan
 
-**`Version`**
-0.5.1
-
 ## Installation
 
 Install `jupiter-api` from the [npm](https://npmjs.com) package manager.
@@ -19,9 +16,9 @@ npm install --save-dev jupiter-api
 ## Usage
 
 ```ts
-import { Jupiter } from "jupiter-api"
+import jupiter from "jupiter-api"
 
-Jupiter.launch().then(async (jupiter) => {
+jupiter.launch().then(async (jupiter) => {
     const request = {
         id: '',
         password: '',
@@ -53,8 +50,8 @@ Jupiter.launch().then(async (jupiter) => {
         "assignments": [{
             "due": "1/1",
             "name": "Assignment 1",
-            "score": 100,
-            "points": 100,
+            "score": 10,
+            "points": 10,
             "category": "Category 1",
             "graded": true
         }]
