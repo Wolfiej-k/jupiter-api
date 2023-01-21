@@ -6,7 +6,7 @@
  - Taj Jethwani-Keyser
  - Alex Pan
 
-**`Version`**  
+**`Version`**
 0.5.1
 
 ## Installation
