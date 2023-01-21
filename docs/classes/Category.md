@@ -22,8 +22,8 @@ Template for a course category.
 | :------ | :------ | :------ |
 | `name` | `string` | Name of category |
 | `grade` | ``null`` \| `number` | Average assignment grade in category |
-| `weight` | `number` | Weight of category for course grade |
+| `weight` | `number` | Weight of category in grade average |
 
 #### Defined in
 
-[models/category.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/category.ts#L14)
+[models/category.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/category.ts#L14)

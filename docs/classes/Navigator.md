@@ -34,7 +34,7 @@ Crawls the student front-end of Jupiter.
 
 #### Defined in
 
-[scraper/navigator.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L14)
+[scraper/navigator.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L14)
 
 ## Methods
 
@@ -47,19 +47,15 @@ Logs in to the Jupiter web client.
 **`Example`**
 
 ```ts
-navigator.login({
+const result = await navigator.login({
      id: '#########',
      password: '#########',
      school: 'Bronx High School of Science',
      city: 'New York City',
      state: 'us_ny'
-}).then((res) => {
-     if (res) {
-         console.log('Login successful')
-     } else {
-         console.log('Login failed')
-     }
 })
+
+console.log(`Login status: {result}`)
 ```
 
 #### Parameters
@@ -76,7 +72,7 @@ Promise resolving to `true` if successful
 
 #### Defined in
 
-[scraper/navigator.ts:41](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L41)
+[scraper/navigator.ts:37](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L37)
 
 ___
 
@@ -92,7 +88,7 @@ Opens or closes the left navbar.
 
 #### Defined in
 
-[scraper/navigator.ts:58](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L58)
+[scraper/navigator.ts:54](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L54)
 
 ___
 
@@ -118,7 +114,7 @@ Navigates to course information page.
 
 #### Defined in
 
-[scraper/navigator.ts:70](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L70)
+[scraper/navigator.ts:66](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L66)
 
 ___
 
@@ -138,7 +134,7 @@ Sets the `classname` attribute to the course name for each course listed in the 
 
 #### Defined in
 
-[scraper/navigator.ts:85](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L85)
+[scraper/navigator.ts:81](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L81)
 
 ___
 
@@ -147,14 +143,6 @@ ___
 ▸ **getElement**(`selector`): `Promise`<``null`` \| `ElementHandle`<`Element`\>\>
 
 Retrieve the first HTML element on the page matching a query.
-
-**`Example`**
-
-```ts
-navigator.getElement('.printmargin').then(async (handle) => {
-     // Read or change HTML element
-})
-```
 
 #### Parameters
 
@@ -170,7 +158,7 @@ Promise resolving to an `ElementHandle` or null if the target is not present
 
 #### Defined in
 
-[scraper/navigator.ts:109](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L109)
+[scraper/navigator.ts:100](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L100)
 
 ___
 
@@ -179,16 +167,6 @@ ___
 ▸ **getElements**(`selector`): `Promise`<`ElementHandle`<`Element`\>[]\>
 
 Retrieve all HTML elements on the page matching a query.
-
-**`Example`**
-
-```ts
-navigator.getElements('div[iscourse=true]').then(async (handles) => {
-     for (const handle of handles) {
-         // Read or change HTML element
-     }
-})
-```
 
 #### Parameters
 
@@ -204,7 +182,7 @@ Promise resolving to an `ElementHandle` array
 
 #### Defined in
 
-[scraper/navigator.ts:126](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L126)
+[scraper/navigator.ts:110](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L110)
 
 ___
 
@@ -213,14 +191,6 @@ ___
 ▸ **getHtml**(`element`): `Promise`<`undefined` \| `string`\>
 
 Retrieve raw HTML from an HTML `ElementHandle`.
-
-**`Example`**
-
-```ts
-navigator.getHtml(handle).then(async (html) => {
-     // Parse raw HTML tags
-})
-```
 
 #### Parameters
 
@@ -236,4 +206,4 @@ Promise resolving to raw HTML string or `undefined` if not present
 
 #### Defined in
 
-[scraper/navigator.ts:141](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L141)
+[scraper/navigator.ts:120](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/navigator.ts#L120)

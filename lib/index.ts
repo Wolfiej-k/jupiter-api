@@ -6,19 +6,11 @@ import Scraper from "./scraper/scraper"
  * Entry-point for the third-party Jupiter API.
  * 
  * @remarks
- * Retrieves student grades, courses, and assignments. See {@link https://jupitered.com/} for more information about the JupiterEd platform. Based on the Puppeteer web-crawling library, found at {@link https://github.com/puppeteer/puppeteer}.
-
- * @version 0.5.0
+ * Initializes Chromium web-crawler, creates requests, and generates `Scraper` objects.
  */
 class Jupiter {
     private browser: Browser
-    
-    /**
-     * @remarks
-     * Must call the `launch()` or `connect()` factory methods rather than constructing a `Jupiter` instance directly.
-     * 
-     * @param {Browser} browser - Puppeteer `Browser` instance
-     */
+
     private constructor(browser: Browser) {
         this.browser = browser
     }
@@ -31,7 +23,7 @@ class Jupiter {
      * 
      * @example
      * ```ts
-     * Jupiter.launch().then(async (jupiter) => {
+     * Jupiter.launch({...options}).then(async (jupiter) => {
      *      // Perform requests
      * })
      * ```
@@ -75,6 +67,7 @@ class Jupiter {
      *      state: 'us_ny'
      * }).then(async (scraper) => {
      *      // Retrieve and parse data
+     *      // See Scraper for more details
      * })
      * ```
      */

@@ -23,22 +23,22 @@ import { Jupiter } from "jupiter-api"
 
 Jupiter.launch().then(async (jupiter) => {
     const request = {
-        "id": "",
-        "password": "",
-        "school": "",
-        "city": "",
-        "state": ""
+        id: '',
+        password: '',
+        school: '',
+        city: '',
+        state: ''
     }
 
     const scraper = await jupiter.request(request)
     const student = await scraper.data()
-    console.log(JSON.stringify(student))
+    console.log(student.toString())
 })
 ```
 
 ## Documentation
 
-More detailed information about the API and its implementation may be found [here](docs/README.md).
+More detailed information about the API and its implementation may be found [here](LICENSE).
 
 ## License
 

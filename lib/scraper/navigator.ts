@@ -23,19 +23,15 @@ class Navigator {
      * 
      * @example
      * ```ts
-     * navigator.login({
+     * const result = await navigator.login({
      *      id: '#########',
      *      password: '#########',
      *      school: 'Bronx High School of Science',
      *      city: 'New York City',
      *      state: 'us_ny'
-     * }).then((res) => {
-     *      if (res) {
-     *          console.log('Login successful')
-     *      } else {
-     *          console.log('Login failed')
-     *      }
      * })
+     * 
+     * console.log(`Login status: {result}`)
      * ```
      */
     public async login(request: JupiterRequest): Promise<boolean> {
@@ -100,11 +96,6 @@ class Navigator {
      * 
      * @param {string} selector - Puppeteer search query
      * @returns {Promise<ElementHandle | null>} Promise resolving to an `ElementHandle` or null if the target is not present
-     * 
-     * @example
-     * navigator.getElement('.printmargin').then(async (handle) => {
-     *      // Read or change HTML element
-     * })
      */
     public async getElement(selector: string): Promise<ElementHandle | null> {
         return await this.page.$(selector)
@@ -115,13 +106,6 @@ class Navigator {
      * 
      * @param {string} selector - Puppeteer search query
      * @returns {Promise<ElementHandle[]>} Promise resolving to an `ElementHandle` array
-     * 
-     * @example
-     * navigator.getElements('div[iscourse=true]').then(async (handles) => {
-     *      for (const handle of handles) {
-     *          // Read or change HTML element
-     *      }
-     * })
      */
     public async getElements(selector: string): Promise<ElementHandle[]> {
         return await this.page.$$(selector)
@@ -132,11 +116,6 @@ class Navigator {
      * 
      * @param {ElementHandle | null} element - Handle to HTML element, null-safe
      * @returns {Promise<string | undefined>} Promise resolving to raw HTML string or `undefined` if not present
-     * 
-     * @example
-     * navigator.getHtml(handle).then(async (html) => {
-     *      // Parse raw HTML tags
-     * })
      */
     public async getHtml(element: ElementHandle | null): Promise<string | undefined> {
         const handle = await element?.getProperty('innerHTML')

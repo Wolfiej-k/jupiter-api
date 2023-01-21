@@ -2,7 +2,7 @@
 
 # Class: Scraper
 
-Retrieves student, grade, course, and assignment data from the raw HTML of the Jupiter web client.
+Retrieves student, grade, course, and assignment data from the Jupiter web client.
 
 ## Table of contents
 
@@ -29,7 +29,7 @@ Retrieves student, grade, course, and assignment data from the raw HTML of the J
 
 #### Defined in
 
-[scraper/scraper.ts:20](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/scraper.ts#L20)
+[scraper/scraper.ts:20](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/scraper.ts#L20)
 
 ## Methods
 
@@ -46,10 +46,8 @@ If login fails, the result has name "Incorrect credentials". See `Student`, `Cou
 **`Example`**
 
 ```ts
-scraper.data().then(async (student) => {
-     const res = JSON.stringify(student)
-     console.log(res)
-})
+const student = await scraper.data()
+console.log(student.toString())
 ```
 
 #### Returns
@@ -60,4 +58,4 @@ Promise resolving to `Student` object
 
 #### Defined in
 
-[scraper/scraper.ts:41](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/scraper.ts#L41)
+[scraper/scraper.ts:39](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/scraper.ts#L39)

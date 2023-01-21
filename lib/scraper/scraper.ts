@@ -7,7 +7,7 @@ import Assignment from "../models/assignment"
 import Navigator from "./navigator"
 
 /**
- * Retrieves student, grade, course, and assignment data from the raw HTML of the Jupiter web client.
+ * Retrieves student, grade, course, and assignment data from the Jupiter web client.
  */
 class Scraper {
     private request: JupiterRequest
@@ -32,10 +32,8 @@ class Scraper {
      * 
      * @example
      * ```ts
-     * scraper.data().then(async (student) => {
-     *      const res = JSON.stringify(student)
-     *      console.log(res)
-     * })
+     * const student = await scraper.data()
+     * console.log(student.toString())
      * ```
      */
     public async data(): Promise<Student> {

@@ -12,7 +12,7 @@ class Assignment {
     /**
      * @param {string} due - Due date of assignment
      * @param {string} name - Name of assignment
-     * @param {number | null} score - Points earned on assignment
+     * @param {number | null} score - Points earned if complete
      * @param {number} points - Total number of points possible
      * @param {string} category - Category of assignment
      */

@@ -6,11 +6,7 @@ Entry-point for the third-party Jupiter API.
 
 **`Remarks`**
 
-Retrieves student grades, courses, and assignments. See [https://jupitered.com/](https://jupitered.com/) for more information about the JupiterEd platform. Based on the Puppeteer web-crawling library, found at [https://github.com/puppeteer/puppeteer](https://github.com/puppeteer/puppeteer).
-
-**`Version`**
-
-0.5.0
+Initializes Chromium web-crawler, creates requests, and generates `Scraper` objects.
 
 ## Table of contents
 
@@ -31,7 +27,7 @@ Launches a Chromium instance and constructs a `Jupiter` object.
 **`Example`**
 
 ```ts
-Jupiter.launch().then(async (jupiter) => {
+Jupiter.launch({...options}).then(async (jupiter) => {
      // Perform requests
 })
 ```
@@ -50,7 +46,7 @@ Promise resolving to `Jupiter` object
 
 #### Defined in
 
-[index.ts:39](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/index.ts#L39)
+[index.ts:31](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/index.ts#L31)
 
 ___
 
@@ -82,7 +78,7 @@ Promise resolving to `Jupiter` object
 
 #### Defined in
 
-[index.ts:57](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/index.ts#L57)
+[index.ts:49](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/index.ts#L49)
 
 ___
 
@@ -103,6 +99,7 @@ jupiter.request({
      state: 'us_ny'
 }).then(async (scraper) => {
      // Retrieve and parse data
+     // See Scraper for more details
 })
 ```
 
@@ -120,4 +117,4 @@ Promise resolving to `Scraper` object
 
 #### Defined in
 
-[index.ts:81](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/index.ts#L81)
+[index.ts:74](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/index.ts#L74)

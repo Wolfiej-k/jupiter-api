@@ -4,8 +4,7 @@ import Course from "./course"
  * Template for a student.
  * 
  * @remarks
- * A student object is returned when the `Scraper` object
- * finishes retrieving data from Jupiter.
+ * A student object is returned when the `Scraper` object finishes retrieving data from Jupiter.
  */
 class Student {
     readonly name: string
@@ -16,8 +15,7 @@ class Student {
      * Constructs a `Student` object and calculates GPA.
      * 
      * @remarks
-     * All courses with name "Phys Ed" are excluded from
-     * GPA calculations.
+     * All courses with exact name "Phys Ed" are excluded from GPA calculations.
      * 
      * @param {string} name - Name of student
      * @param {Course[]} courses - All student courses

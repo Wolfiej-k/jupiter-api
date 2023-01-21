@@ -6,8 +6,7 @@ Template for a student.
 
 **`Remarks`**
 
-A student object is returned when the `Scraper` object
-finishes retrieving data from Jupiter.
+A student object is returned when the `Scraper` object finishes retrieving data from Jupiter.
 
 ## Table of contents
 
@@ -33,7 +32,7 @@ finishes retrieving data from Jupiter.
 
 #### Defined in
 
-[models/student.ts:11](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L11)
+[models/student.ts:10](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L10)
 
 ___
 
@@ -43,7 +42,7 @@ ___
 
 #### Defined in
 
-[models/student.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L12)
+[models/student.ts:11](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L11)
 
 ___
 
@@ -53,7 +52,7 @@ ___
 
 #### Defined in
 
-[models/student.ts:13](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L13)
+[models/student.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L12)
 
 ## Constructors
 
@@ -65,8 +64,7 @@ Constructs a `Student` object and calculates GPA.
 
 **`Remarks`**
 
-All courses with name "Phys Ed" are excluded from
-GPA calculations.
+All courses with exact name "Phys Ed" are excluded from GPA calculations.
 
 #### Parameters
 
@@ -77,7 +75,7 @@ GPA calculations.
 
 #### Defined in
 
-[models/student.ts:25](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L25)
+[models/student.ts:23](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L23)
 
 ## Methods
 
@@ -95,4 +93,4 @@ String-ified fields and subfields
 
 #### Defined in
 
-[models/student.ts:45](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L45)
+[models/student.ts:43](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L43)

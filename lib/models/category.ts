@@ -9,7 +9,7 @@ class Category {
     /**
      * @param {string} name - Name of category
      * @param {number | null} grade - Average assignment grade in category
-     * @param {number} weight - Weight of category for course grade
+     * @param {number} weight - Weight of category in grade average
      */
     constructor(name: string, grade: number | null, weight: number) {
         this.name = name

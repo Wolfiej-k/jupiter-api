@@ -1,6 +1,6 @@
 {
   "name": "jupiter-api",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A third-party API for JupiterEd data.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Wolfiej-k/jupiter-api.git"
   },
-  "author": "Wolfie",
+  "author": "Taj Jethwani-Keyser",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Wolfiej-k/jupiter-api/issues"

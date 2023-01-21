@@ -29,4 +29,4 @@ Template for a student course.
 
 #### Defined in
 
-[models/course.ts:23](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/course.ts#L23)
+[models/course.ts:23](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/course.ts#L23)
