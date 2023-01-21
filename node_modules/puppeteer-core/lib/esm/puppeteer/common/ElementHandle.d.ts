@@ -20,7 +20,7 @@ import { Frame } from './Frame.js';
 import { WaitForSelectorOptions } from './IsolatedWorld.js';
 import { BoundingBox, BoxModel, ClickOptions, JSHandle, Offset, Point, PressOptions } from './JSHandle.js';
 import { ScreenshotOptions } from '../api/Page.js';
-import { EvaluateFunc, NodeFor } from './types.js';
+import { ElementFor, EvaluateFunc, HandleFor, NodeFor } from './types.js';
 import { KeyInput } from './USKeyboardLayout.js';
 /**
  * ElementHandle represents an in-page DOM element.
@@ -29,7 +29,7 @@ import { KeyInput } from './USKeyboardLayout.js';
  * ElementHandles can be created with the {@link Page.$} method.
  *
  * ```ts
- * const puppeteer = require('puppeteer');
+ * import puppeteer from 'puppeteer';
  *
  * (async () => {
  *   const browser = await puppeteer.launch();
@@ -142,9 +142,9 @@ export declare class ElementHandle<ElementType extends Node = Element> extends J
      * @returns A promise to the result of the function.
      */
     $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFunc<[
-        Array<NodeFor<Selector>>,
+        HandleFor<Array<NodeFor<Selector>>>,
         ...Params
-    ]> = EvaluateFunc<[Array<NodeFor<Selector>>, ...Params]>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
+    ]> = EvaluateFunc<[HandleFor<Array<NodeFor<Selector>>>, ...Params]>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     /**
      * @deprecated Use {@link ElementHandle.$$} with the `xpath` prefix.
      *
@@ -168,7 +168,7 @@ export declare class ElementHandle<ElementType extends Node = Element> extends J
      * @example
      *
      * ```ts
-     * const puppeteer = require('puppeteer');
+     * import puppeteer from 'puppeteer';
      *
      * (async () => {
      *   const browser = await puppeteer.launch();
@@ -215,7 +215,7 @@ export declare class ElementHandle<ElementType extends Node = Element> extends J
      * This method works across navigation.
      *
      * ```ts
-     * const puppeteer = require('puppeteer');
+     * import puppeteer from 'puppeteer';
      * (async () => {
      *   const browser = await puppeteer.launch();
      *   const page = await browser.newPage();
@@ -262,6 +262,26 @@ export declare class ElementHandle<ElementType extends Node = Element> extends J
         hidden?: boolean;
         timeout?: number;
     }): Promise<ElementHandle<Node> | null>;
+    /**
+     * Converts the current handle to the given element type.
+     *
+     * @example
+     *
+     * ```ts
+     * const element: ElementHandle<Element> = await page.$(
+     *   '.class-name-of-anchor'
+     * );
+     * // DO NOT DISPOSE `element`, this will be always be the same handle.
+     * const anchor: ElementHandle<HTMLAnchorElement> = await element.toElement(
+     *   'a'
+     * );
+     * ```
+     *
+     * @param tagName - The tag name of the desired element type.
+     * @throws An error if the handle does not match. **The handle will not be
+     * automatically disposed.**
+     */
+    toElement<K extends keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap>(tagName: K): Promise<HandleFor<ElementFor<K>>>;
     asElement(): ElementHandle<ElementType> | null;
     /**
      * Resolves to the content frame for element handles referencing

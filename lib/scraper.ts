@@ -1,4 +1,5 @@
-import {Page, ElementHandle} from "puppeteer"
+import { Page } from "puppeteer"
+import JupiterRequest from "./request"
 import Student from "./models/student"
 import Course from "./models/course"
 import Category from "./models/category"
@@ -6,20 +7,16 @@ import Assignment from "./models/assignment"
 import Navigator from "./navigator"
 
 class Scraper {
-    private body: Record<string, string>
-    public navigator: Navigator
+    private request: JupiterRequest
+    private navigator: Navigator
 
-    constructor(body: Record<string, string>, page: Page) {
-        this.body = body
-        this.navigator = new Navigator(page)
+    constructor(request: JupiterRequest, navigator: Navigator) {
+        this.request = request
+        this.navigator = navigator
     }
 
     public async data(): Promise<Student> {
-        await this.navigator.load()
-        this.navigator.goLogin(this.body)
-        await this.navigator.wait()
-
-        if ((await this.navigator.getElement('#alert')) != null)
+        if (!(await this.navigator.login(this.request)))
             return new Student('Incorrect credentials', [])
 
         const studentName = await this.getName()
@@ -28,12 +25,11 @@ class Scraper {
         let courses: Course[] = []
         for (const courseName of courseNames) {
             await this.navigator.goCourse(courseName)
-            await this.navigator.wait()
 
             const div = await this.navigator.getElement('.printmargin')
-            const raw = await this.getHtml(div)
+            const raw = await this.navigator.getHtml(div) ?? ''
             const content = raw.split('\n').map((l: any) => l.replace(/\t+/g, ''))
-        
+
             const [name, teacher, schedule] = this.getCourseInfo(content)
             const [grade, categories] = this.getGradeInfo(content)
             const assignments = this.getAssignmentInfo(content)
@@ -49,12 +45,12 @@ class Scraper {
 
     private async getName(): Promise<string> {
         const element = await this.navigator.getElement('.toptabnull')
-        return await this.getHtml(element)
+        return await this.navigator.getHtml(element) ?? 'Couldn\'t get name'
     }
 
     private async getCourses(): Promise<string[]> {
         let courses: string[] = []
-        await this.navigator.nav()
+        await this.navigator.toggleNav()
         await this.navigator.fixCourses()
 
         const elements = await this.navigator.getElements('div[iscourse=true]')
@@ -63,7 +59,7 @@ class Scraper {
             courses.push(String(value))
         }
 
-        await this.navigator.nav()
+        await this.navigator.toggleNav()
         return courses
     }
 
@@ -119,12 +115,6 @@ class Scraper {
         }
         
         return assignments
-    }
-
-    private async getHtml(element: ElementHandle | null): Promise<string> {
-        const handle = await element?.getProperty('innerHTML')
-        const value = await handle?.jsonValue() ?? 'Couldn\'t get name'
-        return value.trim()
     }
 }
 

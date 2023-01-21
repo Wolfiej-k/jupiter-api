@@ -19,7 +19,7 @@ import { Product } from '../common/Product.js';
  *
  * @public
  */
-export declare type Platform = 'linux' | 'mac' | 'mac_arm' | 'win32' | 'win64';
+export type Platform = 'linux' | 'mac' | 'mac_arm' | 'win32' | 'win64';
 /**
  * @public
  */

@@ -23,11 +23,11 @@ import { JSHandle } from './JSHandle.js';
 /**
  * @internal
  */
-export declare type ConsoleAPICalledCallback = (eventType: ConsoleMessageType, handles: JSHandle[], trace: Protocol.Runtime.StackTrace) => void;
+export type ConsoleAPICalledCallback = (eventType: ConsoleMessageType, handles: JSHandle[], trace: Protocol.Runtime.StackTrace) => void;
 /**
  * @internal
  */
-export declare type ExceptionThrownCallback = (details: Protocol.Runtime.ExceptionDetails) => void;
+export type ExceptionThrownCallback = (details: Protocol.Runtime.ExceptionDetails) => void;
 /**
  * This class represents a
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API | WebWorker}.

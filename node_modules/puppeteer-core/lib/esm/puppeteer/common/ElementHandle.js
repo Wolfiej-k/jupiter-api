@@ -41,7 +41,7 @@ const applyOffsetsToQuad = (quad, offsetX, offsetY) => {
  * ElementHandles can be created with the {@link Page.$} method.
  *
  * ```ts
- * const puppeteer = require('puppeteer');
+ * import puppeteer from 'puppeteer';
  *
  * (async () => {
  *   const browser = await puppeteer.launch();
@@ -176,9 +176,9 @@ export class ElementHandle extends JSHandle {
         const { updatedSelector, queryHandler } = getQueryHandlerAndSelector(selector);
         assert(queryHandler.queryAll, 'Cannot handle queries for a multiple element with the given selector');
         const handles = (await queryHandler.queryAll(this, updatedSelector));
-        const elements = await this.evaluateHandle((_, ...elements) => {
+        const elements = (await this.evaluateHandle((_, ...elements) => {
             return elements;
-        }, ...handles);
+        }, ...handles));
         const [result] = await Promise.all([
             elements.evaluate(pageFunction, ...args),
             ...handles.map(handle => {
@@ -216,7 +216,7 @@ export class ElementHandle extends JSHandle {
      * @example
      *
      * ```ts
-     * const puppeteer = require('puppeteer');
+     * import puppeteer from 'puppeteer';
      *
      * (async () => {
      *   const browser = await puppeteer.launch();
@@ -267,7 +267,7 @@ export class ElementHandle extends JSHandle {
      * This method works across navigation.
      *
      * ```ts
-     * const puppeteer = require('puppeteer');
+     * import puppeteer from 'puppeteer';
      * (async () => {
      *   const browser = await puppeteer.launch();
      *   const page = await browser.newPage();
@@ -314,6 +314,34 @@ export class ElementHandle extends JSHandle {
             xpath = `.${xpath}`;
         }
         return this.waitForSelector(`xpath/${xpath}`, options);
+    }
+    /**
+     * Converts the current handle to the given element type.
+     *
+     * @example
+     *
+     * ```ts
+     * const element: ElementHandle<Element> = await page.$(
+     *   '.class-name-of-anchor'
+     * );
+     * // DO NOT DISPOSE `element`, this will be always be the same handle.
+     * const anchor: ElementHandle<HTMLAnchorElement> = await element.toElement(
+     *   'a'
+     * );
+     * ```
+     *
+     * @param tagName - The tag name of the desired element type.
+     * @throws An error if the handle does not match. **The handle will not be
+     * automatically disposed.**
+     */
+    async toElement(tagName) {
+        const isMatchingTagName = await this.evaluate((node, tagName) => {
+            return node.nodeName === tagName.toUpperCase();
+        }, tagName);
+        if (!isMatchingTagName) {
+            throw new Error(`Element is not a(n) \`${tagName}\` element`);
+        }
+        return this;
     }
     asElement() {
         return this;

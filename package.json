@@ -1,6 +1,6 @@
 {
   "name": "jupiter-api",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "A third-party API for JupiterEd data.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "@types/express": "^4.17.14",
     "@types/puppeteer": "^7.0.4",
     "express": "^4.18.2",
-    "puppeteer": "^19.3.0",
+    "puppeteer": "^19.5.2",
     "typescript": "^4.9.3"
   }
 }

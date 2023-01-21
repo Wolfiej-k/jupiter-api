@@ -16,27 +16,23 @@ const student_1 = __importDefault(require("./models/student"));
 const course_1 = __importDefault(require("./models/course"));
 const category_1 = __importDefault(require("./models/category"));
 const assignment_1 = __importDefault(require("./models/assignment"));
-const navigator_1 = __importDefault(require("./navigator"));
 class Scraper {
-    constructor(body, page) {
-        this.body = body;
-        this.navigator = new navigator_1.default(page);
+    constructor(request, navigator) {
+        this.request = request;
+        this.navigator = navigator;
     }
     data() {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.navigator.load();
-            this.navigator.goLogin(this.body);
-            yield this.navigator.wait();
-            if ((yield this.navigator.getElement('#alert')) != null)
+            if (!(yield this.navigator.login(this.request)))
                 return new student_1.default('Incorrect credentials', []);
             const studentName = yield this.getName();
             const courseNames = yield this.getCourses();
             let courses = [];
             for (const courseName of courseNames) {
                 yield this.navigator.goCourse(courseName);
-                yield this.navigator.wait();
                 const div = yield this.navigator.getElement('.printmargin');
-                const raw = yield this.getHtml(div);
+                const raw = (_a = yield this.navigator.getHtml(div)) !== null && _a !== void 0 ? _a : '';
                 const content = raw.split('\n').map((l) => l.replace(/\t+/g, ''));
                 const [name, teacher, schedule] = this.getCourseInfo(content);
                 const [grade, categories] = this.getGradeInfo(content);
@@ -49,22 +45,23 @@ class Scraper {
         });
     }
     getName() {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             const element = yield this.navigator.getElement('.toptabnull');
-            return yield this.getHtml(element);
+            return (_a = yield this.navigator.getHtml(element)) !== null && _a !== void 0 ? _a : 'Couldn\'t get name';
         });
     }
     getCourses() {
         return __awaiter(this, void 0, void 0, function* () {
             let courses = [];
-            yield this.navigator.nav();
+            yield this.navigator.toggleNav();
             yield this.navigator.fixCourses();
             const elements = yield this.navigator.getElements('div[iscourse=true]');
             for (const el of elements) {
                 const value = yield el.evaluate((n) => n.getAttribute('classname'));
                 courses.push(String(value));
             }
-            yield this.navigator.nav();
+            yield this.navigator.toggleNav();
             return courses;
         });
     }
@@ -108,14 +105,6 @@ class Scraper {
             l = content.findIndex((v, i) => i > l && v.includes('<!-- Assignment'));
         }
         return assignments;
-    }
-    getHtml(element) {
-        var _a;
-        return __awaiter(this, void 0, void 0, function* () {
-            const handle = yield (element === null || element === void 0 ? void 0 : element.getProperty('innerHTML'));
-            const value = (_a = yield (handle === null || handle === void 0 ? void 0 : handle.jsonValue())) !== null && _a !== void 0 ? _a : 'Couldn\'t get name';
-            return value.trim();
-        });
     }
 }
 exports.default = Scraper;

@@ -11,43 +11,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 class Navigator {
     constructor(page) {
+        this.url = 'https://login.jupitered.com/login/';
         this.page = page;
     }
-    load() {
+    login(request) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.page.goto('https://login.jupitered.com/login/');
-            yield this.wait();
-        });
-    }
-    wait() {
-        return __awaiter(this, void 0, void 0, function* () {
+            yield this.page.goto(this.url);
             yield this.page.waitForNavigation();
+            yield this.page.type('#text_studid1', request['id']);
+            yield this.page.type('#text_password1', request['password']);
+            yield this.page.type('#text_school1', request['school']);
+            yield this.page.type('#text_city1', request['city']);
+            yield this.page.$eval('input[name=region1]', (el, state) => el.value = state, request['state']);
+            yield this.page.click('#loginbtn');
+            yield this.page.waitForNavigation();
+            return (yield this.getElement('#alert')) == null;
         });
     }
-    nav() {
+    toggleNav() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.page.click('#touchnavbtn');
-        });
-    }
-    goLogin(body) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield this.page.type('#text_studid1', body['id']);
-            yield this.page.type('#text_password1', body['password']);
-            yield this.page.type('#text_school1', body['school']);
-            yield this.page.type('#text_city1', body['city']);
-            yield this.page.$eval('input[name=region1]', (el, state) => el.value = state, body['state']);
-            yield this.page.click('#loginbtn');
-            console.log(`Attempting login to user ${body['id']}`);
         });
     }
     goCourse(course) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.nav();
+            yield this.toggleNav();
             yield this.fixCourses();
             const selector = `div[classname="${course}"]`;
             const click = (_a = yield this.page.$eval(selector, el => el.getAttribute('click'))) !== null && _a !== void 0 ? _a : '';
             yield this.page.evaluate(click);
+            yield this.page.waitForNavigation();
         });
     }
     fixCourses() {
@@ -72,6 +66,13 @@ class Navigator {
     getElements(selector) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.page.$$(selector);
+        });
+    }
+    getHtml(element) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const handle = yield (element === null || element === void 0 ? void 0 : element.getProperty('innerHTML'));
+            const value = yield (handle === null || handle === void 0 ? void 0 : handle.jsonValue());
+            return value === null || value === void 0 ? void 0 : value.trim();
         });
     }
 }
