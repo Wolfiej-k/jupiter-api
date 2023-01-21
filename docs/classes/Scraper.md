@@ -29,7 +29,7 @@ Retrieves student, grade, course, and assignment data from the raw HTML of the J
 
 #### Defined in
 
-scraper/scraper.ts:20
+[scraper/scraper.ts:20](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/scraper.ts#L20)
 
 ## Methods
 
@@ -60,4 +60,4 @@ Promise resolving to `Student` object
 
 #### Defined in
 
-scraper/scraper.ts:41
+[scraper/scraper.ts:41](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/scraper.ts#L41)

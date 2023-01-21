@@ -33,7 +33,7 @@ finishes retrieving data from Jupiter.
 
 #### Defined in
 
-[models/student.ts:11](https://github.com/Wolfiej-k/jupiter-api/blob/9d6b8f8/lib/models/student.ts#L11)
+[models/student.ts:11](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L11)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[models/student.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/9d6b8f8/lib/models/student.ts#L12)
+[models/student.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L12)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[models/student.ts:13](https://github.com/Wolfiej-k/jupiter-api/blob/9d6b8f8/lib/models/student.ts#L13)
+[models/student.ts:13](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L13)
 
 ## Constructors
 
@@ -77,7 +77,7 @@ GPA calculations.
 
 #### Defined in
 
-[models/student.ts:25](https://github.com/Wolfiej-k/jupiter-api/blob/9d6b8f8/lib/models/student.ts#L25)
+[models/student.ts:25](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L25)
 
 ## Methods
 
@@ -95,4 +95,4 @@ String-ified fields and subfields
 
 #### Defined in
 
-[models/student.ts:45](https://github.com/Wolfiej-k/jupiter-api/blob/9d6b8f8/lib/models/student.ts#L45)
+[models/student.ts:45](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/models/student.ts#L45)

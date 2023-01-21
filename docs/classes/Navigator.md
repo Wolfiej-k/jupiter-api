@@ -34,7 +34,7 @@ Crawls the student front-end of Jupiter.
 
 #### Defined in
 
-scraper/navigator.ts:14
+[scraper/navigator.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L14)
 
 ## Methods
 
@@ -76,7 +76,7 @@ Promise resolving to `true` if successful
 
 #### Defined in
 
-scraper/navigator.ts:41
+[scraper/navigator.ts:41](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L41)
 
 ___
 
@@ -92,7 +92,7 @@ Opens or closes the left navbar.
 
 #### Defined in
 
-scraper/navigator.ts:58
+[scraper/navigator.ts:58](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L58)
 
 ___
 
@@ -118,7 +118,7 @@ Navigates to course information page.
 
 #### Defined in
 
-scraper/navigator.ts:70
+[scraper/navigator.ts:70](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L70)
 
 ___
 
@@ -138,7 +138,7 @@ Sets the `classname` attribute to the course name for each course listed in the 
 
 #### Defined in
 
-scraper/navigator.ts:85
+[scraper/navigator.ts:85](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L85)
 
 ___
 
@@ -170,7 +170,7 @@ Promise resolving to an `ElementHandle` or null if the target is not present
 
 #### Defined in
 
-scraper/navigator.ts:109
+[scraper/navigator.ts:109](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L109)
 
 ___
 
@@ -204,7 +204,7 @@ Promise resolving to an `ElementHandle` array
 
 #### Defined in
 
-scraper/navigator.ts:126
+[scraper/navigator.ts:126](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L126)
 
 ___
 
@@ -236,4 +236,4 @@ Promise resolving to raw HTML string or `undefined` if not present
 
 #### Defined in
 
-scraper/navigator.ts:141
+[scraper/navigator.ts:141](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/scraper/navigator.ts#L141)

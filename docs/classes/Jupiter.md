@@ -50,7 +50,7 @@ Promise resolving to `Jupiter` object
 
 #### Defined in
 
-index.ts:39
+[index.ts:39](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/index.ts#L39)
 
 ___
 
@@ -82,7 +82,7 @@ Promise resolving to `Jupiter` object
 
 #### Defined in
 
-index.ts:57
+[index.ts:57](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/index.ts#L57)
 
 ___
 
@@ -120,4 +120,4 @@ Promise resolving to `Scraper` object
 
 #### Defined in
 
-index.ts:81
+[index.ts:81](https://github.com/Wolfiej-k/jupiter-api/blob/a3e10ae/lib/index.ts#L81)
