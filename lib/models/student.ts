@@ -1,10 +1,27 @@
 import Course from "./course"
 
+/**
+ * Template for a student.
+ * 
+ * @remarks
+ * A student object is returned when the `Scraper` object
+ * finishes retrieving data from Jupiter.
+ */
 class Student {
-    name: string
-    gpa: number
-    courses: Course[]
+    readonly name: string
+    readonly gpa: number
+    readonly courses: Course[]
 
+    /**
+     * Constructs a `Student` object and calculates GPA.
+     * 
+     * @remarks
+     * All courses with name "Phys Ed" are excluded from
+     * GPA calculations.
+     * 
+     * @param {string} name - Name of student
+     * @param {Course[]} courses - All student courses
+     */
     constructor(name: string, courses: Course[]) {
         this.name = name
         this.courses = courses
@@ -12,12 +29,21 @@ class Student {
         let total = 0
         let sub = 0
         this.courses.forEach(course => {
-            if (course.name != 'Phys Ed')
-                total += Math.round(course.grade)
+            if (course.getName() != 'Phys Ed')
+                total += Math.round(course.getGrade())
             else sub++
         })
         
         this.gpa = total / (this.courses.length - sub)
+    }
+
+    /**
+     * JSON representation of the `Student` instance.
+     * 
+     * @returns {string} String-ified fields and subfields
+     */
+    public toString(): string {
+        return JSON.stringify(this)
     }
 }
 
