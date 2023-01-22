@@ -16,9 +16,9 @@ npm install --save jupiter-api
 ## Usage
 
 ```ts
-import jupiter from "jupiter-api"
+import Jupiter from "jupiter-api"
 
-jupiter.launch().then(async (jupiter) => {
+Jupiter.launch().then(async (jupiter) => {
     const request = {
         id: '',
         password: '',
