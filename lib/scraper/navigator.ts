@@ -31,7 +31,7 @@ class Navigator {
      *      state: ''
      * })
      * 
-     * console.log(`Login status: {result}`)
+     * console.log(`Login status: ${result}`)
      * ```
      */
     public async login(request: JupiterRequest): Promise<boolean> {
