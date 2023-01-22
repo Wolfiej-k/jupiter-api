@@ -12,8 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Navigator = exports.Scraper = void 0;
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const scraper_1 = __importDefault(require("./scraper/scraper"));
+exports.Scraper = scraper_1.default;
+const navigator_1 = __importDefault(require("./scraper/navigator"));
+exports.Navigator = navigator_1.default;
 class Jupiter {
     constructor(browser) {
         this.browser = browser;
