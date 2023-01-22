@@ -46,7 +46,7 @@ Promise resolving to `Jupiter` object
 
 #### Defined in
 
-[index.ts:31](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/index.ts#L31)
+[index.ts:32](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/index.ts#L32)
 
 ___
 
@@ -78,7 +78,7 @@ Promise resolving to `Jupiter` object
 
 #### Defined in
 
-[index.ts:49](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/index.ts#L49)
+[index.ts:50](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/index.ts#L50)
 
 ___
 
@@ -92,11 +92,11 @@ Creates a new Jupiter request and returns a `Scraper` object.
 
 ```ts
 jupiter.request({
-     id: '#########',
-     password: '#########',
-     school: 'Bronx High School of Science',
-     city: 'New York City',
-     state: 'us_ny'
+     id: '',
+     password: '',
+     school: '',
+     city: '',
+     state: ''
 }).then(async (scraper) => {
      // Retrieve and parse data
      // See Scraper for more details
@@ -117,4 +117,4 @@ Promise resolving to `Scraper` object
 
 #### Defined in
 
-[index.ts:74](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/index.ts#L74)
+[index.ts:75](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/index.ts#L75)

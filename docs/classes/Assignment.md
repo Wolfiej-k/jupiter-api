@@ -28,4 +28,4 @@ Template for a course assignment.
 
 #### Defined in
 
-[models/assignment.ts:19](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/assignment.ts#L19)
+[models/assignment.ts:19](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/assignment.ts#L19)

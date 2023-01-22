@@ -16,7 +16,7 @@ class Course {
      * @param {string} name - Name of course
      * @param {string} teacher - Name of course teacher
      * @param {string} schedule - Course periods, days, and room numbers
-     * @param {string} grade - Current grade in the course
+     * @param {number} grade - Current grade in the course
      * @param {Category[]} categories - All course categories
      * @param {Assignment[]} assignments - All course assignments
      */

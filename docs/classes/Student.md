@@ -32,7 +32,7 @@ A student object is returned when the `Scraper` object finishes retrieving data 
 
 #### Defined in
 
-[models/student.ts:10](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L10)
+[models/student.ts:10](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/student.ts#L10)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[models/student.ts:11](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L11)
+[models/student.ts:11](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/student.ts#L11)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[models/student.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L12)
+[models/student.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/student.ts#L12)
 
 ## Constructors
 
@@ -75,7 +75,7 @@ All courses with exact name "Phys Ed" are excluded from GPA calculations.
 
 #### Defined in
 
-[models/student.ts:23](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L23)
+[models/student.ts:23](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/student.ts#L23)
 
 ## Methods
 
@@ -93,4 +93,4 @@ String-ified fields and subfields
 
 #### Defined in
 
-[models/student.ts:43](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/student.ts#L43)
+[models/student.ts:43](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/student.ts#L43)

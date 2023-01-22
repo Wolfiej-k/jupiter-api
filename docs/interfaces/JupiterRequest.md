@@ -24,7 +24,7 @@ Student ID number, often a 9-digit code
 
 #### Defined in
 
-[scraper/request.ts:6](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/request.ts#L6)
+[scraper/request.ts:6](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/scraper/request.ts#L6)
 
 ___
 
@@ -36,7 +36,7 @@ Student password
 
 #### Defined in
 
-[scraper/request.ts:9](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/request.ts#L9)
+[scraper/request.ts:9](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/scraper/request.ts#L9)
 
 ___
 
@@ -48,7 +48,7 @@ School with Jupiter services
 
 #### Defined in
 
-[scraper/request.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/request.ts#L12)
+[scraper/request.ts:12](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/scraper/request.ts#L12)
 
 ___
 
@@ -60,7 +60,7 @@ City where school is located
 
 #### Defined in
 
-[scraper/request.ts:15](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/request.ts#L15)
+[scraper/request.ts:15](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/scraper/request.ts#L15)
 
 ___
 
@@ -76,4 +76,4 @@ Jupiter uses a 5-digit code to represent states. US: `us_##`\, Canada: `ca_##`\,
 
 #### Defined in
 
-[scraper/request.ts:22](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/scraper/request.ts#L22)
+[scraper/request.ts:22](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/scraper/request.ts#L22)

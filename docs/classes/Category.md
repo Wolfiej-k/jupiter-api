@@ -26,4 +26,4 @@ Template for a course category.
 
 #### Defined in
 
-[models/category.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/e681e95/lib/models/category.ts#L14)
+[models/category.ts:14](https://github.com/Wolfiej-k/jupiter-api/blob/21e8fcb/lib/models/category.ts#L14)
