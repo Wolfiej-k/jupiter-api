@@ -1,6 +1,7 @@
 import puppeteer, { Browser, PuppeteerLaunchOptions, ConnectOptions } from "puppeteer"
 import JupiterRequest from "./scraper/request"
 import Scraper from "./scraper/scraper"
+import Navigator from "./scraper/navigator"
 
 /**
  * Entry-point for the third-party Jupiter API.
@@ -80,3 +81,4 @@ class Jupiter {
 }
 
 export default Jupiter
+export { Scraper, Navigator }
